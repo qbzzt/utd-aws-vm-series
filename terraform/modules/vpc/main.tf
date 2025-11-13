@@ -142,12 +142,17 @@ data "aws_ami" "latest_ecs" {
 
   filter {
       name   = "name"
-      values = ["amzn2-ami-hvm-*-gp2"]
+      values = ["amzn2-ami-hvm-*-x86_64-gp2"]  # ← Add x86_64 here
   }
 
   filter {
       name   = "virtualization-type"
       values = ["hvm"]
+  }
+  
+  filter {
+      name   = "architecture"
+      values = ["x86_64"]  # ← Add this filter
   }
 }
 
